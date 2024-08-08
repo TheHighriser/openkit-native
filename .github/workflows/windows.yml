@@ -13,8 +13,6 @@ jobs:
         include:
         - BUILD_SHARED_LIBS: "On"
           BUILD_TYPE: "Release"
-        - BUILD_SHARED_LIBS: "Off"
-          BUILD_TYPE: "Release"
 
     steps:
     - uses: actions/checkout@v3
@@ -33,3 +31,9 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: ctest -C ${{matrix.BUILD_TYPE}} --timeout 600 --output-on-failure
+
+    - name: Upload .dll file
+      uses: actions/upload-artifact@v4
+      with:
+        name: dll-file-library
+        path: "${{github.workspace}}/build/x64-Release DLL/bin/*.dll"
