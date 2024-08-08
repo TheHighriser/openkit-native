@@ -50,7 +50,7 @@ jobs:
         CXX: ${{ matrix.CXX }}
 
     - name: Upload .so file
-        uses: actions/upload-artifact@v4
-        with:
-          name: so-file-library
-          path: ${{github.workspace}}/build/**/*.so
+      uses: actions/upload-artifact@v4
+      with:
+        name: so-file-library
+        path: ${{github.workspace}}/build/**/*.so
