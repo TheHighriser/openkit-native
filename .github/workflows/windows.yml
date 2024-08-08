@@ -36,4 +36,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: dll-file-library
-        path: "${{github.workspace}}/build/x64-Release DLL/bin/*.dll"
+        path: "${{github.workspace}}/build/bin/Release/*.dll"
